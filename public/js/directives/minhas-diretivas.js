@@ -14,3 +14,19 @@ angular.module('minhasDiretivas', [])
 
     return ddo;
 })
+
+//exercicio, não estou usando no projeto
+.directive('minhaFoto', function(){
+    var ddo = {};
+
+    ddo.restrict = 'AE';
+
+    ddo.scope = {
+        url: '@url',
+        titulo: '@titulo'
+    };
+
+    ddo.template = '<img class="img-responsive center-block" ng-src="{{url}}" alt="{{titulo}}">'; //ng-src pode ser usado no lugar de src, e o console apontar algum erro nesse sentido
+
+    return ddo;
+})
