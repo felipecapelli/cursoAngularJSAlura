@@ -2,7 +2,7 @@ angular.module('alurapic').controller('FotosController', function($scope, $http)
     $scope.fotos = [];
 
     $http.get('v1/fotos')
-        .success(function(fotos){
+        .success(function(fotos){//pode usar o .then aqui tbm se quiser
             $scope.fotos = fotos;
         })
         .catch(function(erro){
@@ -15,5 +15,5 @@ angular.module('alurapic').controller('FotosController', function($scope, $http)
     }).catch(function(error){
         console.log(error);
     });*/
-    
+
 });
