@@ -17,7 +17,7 @@ angular.module('alurapic').controller('FotoController', function($scope, $http, 
             if($scope.foto._id){
                 $http.put('v1/fotos/' + $scope.foto._id, $scope.foto)
                 .success(function(){
-                    $scope.mensagem = 'A foto ' + $scope.foto + ' foi alterada com sucesso';
+                    $scope.mensagem = 'A foto ' + $scope.foto.titulo + ' foi alterada com sucesso';
                 })
                 .error(function(error){
                     console.log(error);
@@ -35,6 +35,7 @@ angular.module('alurapic').controller('FotoController', function($scope, $http, 
                     console.log(erro);
                 });
             }
+            $scope.formulario.$setPristine(); //impede que a validação do formulario seja disparada depois de salvar
         }
     }
 });
