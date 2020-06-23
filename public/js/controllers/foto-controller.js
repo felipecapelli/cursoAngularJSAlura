@@ -1,4 +1,4 @@
-angular.module('alurapic').controller('FotoController', function($scope, $http, $routeParams, recursoFoto){
+angular.module('alurapic').controller('FotoController', function($scope, $routeParams, recursoFoto, cadastroDeFotos ){
     $scope.foto = {};
     $scope.mensagem = '';
     
@@ -15,23 +15,17 @@ angular.module('alurapic').controller('FotoController', function($scope, $http, 
 
     $scope.submeter = function(){
         if($scope.formulario.$valid){
-            if($scope.foto._id){
-                recursoFoto.update({fotoId: $scope.foto._id}, $scope.foto, function(){
-                    $scope.mensagem = 'A foto ' + $scope.foto.titulo + ' foi alterada com sucesso';
-                }, function(){
-                    $scope.mensagem = 'Não foi Possível alterar a foto '+ $scope.foto.titulo;
-                });
-            }else{
-                recursoFoto.save($scope.foto, function(){
-                    $scope.foto = {};
-                    $scope.mensagem = 'Foto Cadastrada com sucesso';
-                    //console.log($scope.formulario.titulo.$name);//se quiser também pode acessar o item do formulario pelo name, sem precisar usar o data binding com ng-model
-                }, function(erro){
-                    $scope.mensagem = 'Não foi possível incluir a foto';
-                    console.log(erro);
-                });
-            }
-            $scope.formulario.$setPristine();//impede que a validação do formulario seja disparada depois de salvar
+            cadastroDeFotos.cadastrar($scope.foto)
+            .then(function(dados){
+                $scope.mensagem = dados.mensagem; //console.log($scope.formulario.titulo.$name);//se quiser também pode acessar o item do formulario pelo name, sem precisar usar o data binding com ng-model
+                
+                if(dados.inclusao) $scope.foto = {}
+                
+                $scope.formulario.$setPristine();//impede que a validação do formulario seja disparada depois de salvar
+            })
+            .catch(function(){
+                $scope.mensagem = dados.mensagem;
+            });            
         }
     }
 });

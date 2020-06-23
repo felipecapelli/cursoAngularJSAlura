@@ -45,3 +45,6 @@
 {"titulo":"teste2","url":"http://www.fundosanimais.com/Minis/leoes.jpg","descricao":"testes","grupo":3,"_id":"61xEYPsngituqFUk"}
 {"titulo":"teste2","url":"http://www.fundosanimais.com/Minis/leoes.jpg","descricao":"testes lala","grupo":3,"_id":"61xEYPsngituqFUk"}
 {"$$deleted":true,"_id":"61xEYPsngituqFUk"}
+{"titulo":"teste","url":"http://www.fundosanimais.com/Minis/leoes.jpg","descricao":"lala","grupo":3,"_id":"503RFr5FI824kRPl"}
+{"titulo":"teste 2","url":"http://www.fundosanimais.com/Minis/leoes.jpg","descricao":"lala","grupo":3,"_id":"503RFr5FI824kRPl"}
+{"$$deleted":true,"_id":"503RFr5FI824kRPl"}
