@@ -1,5 +1,5 @@
 angular.module('alurapic', ['minhasDiretivas', 'ngAnimate','ngRoute', 'meusServicos'])
-.config(function($routeProvider, $locationProvider){
+.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
 
     $locationProvider.html5Mode(true);//pra funcinar o html principal tem que ter a tag <base href="">
 
@@ -19,4 +19,4 @@ angular.module('alurapic', ['minhasDiretivas', 'ngAnimate','ngRoute', 'meusServi
     })
 
     $routeProvider.otherwise({redirectTo: '/fotos'});
-})
+}])
